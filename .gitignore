@@ -1,0 +1,7 @@
+*/
+*.lnk
+composer.*
+favicon.*
+config.xml
+database.xml
+datafile.xml

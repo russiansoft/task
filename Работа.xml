@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<unit name="Работа">
+	
+	<type name="Работа" title="Работа" scope="global">
+		<field.ref name="Организация" type="Организация" title="Организация" width="10" indexing="key"/>
+		<field.ref name="Проект" type="Договор" width="6" indexing="key"/>
+		<field.ref name="Постановщик" type="Сотрудник" width="10" indexing="key"/>
+		<field.ref name="Задача" type="Задача" width="18" indexing="key"/>
+		<field.string name="ДеньНедели" title="Д" width="3" indexing="key"/>
+		<field.number name="НомерДняНедели" variable="1"/>
+		<field.date name="Дата" width="9" indexing="sort"/>
+		<field.date name="Неделя" width="9" indexing="key"/>
+		<field.string name="Месяц" width="5" title="Месяц" indexing="key"/>
+		<field.string name="Год" width="3" title="Год" indexing="key"/>
+		<field.number name="Начало" precision="2" title="Начало (час,мин)" width="10"/>
+		<field.number name="Окончание" precision="2" title="Окончание (час,мин)" width="10"/>
+		<field.number name="Отработано" precision="2" title="Отработано (часов)" width="10" indexing="total"/>
+		<field.string name="Содержание" width="30"/>
+		<field.string name="ТекущееВремя" variable="1"/>
+		
+		<function name="НомерДняНедели">
+			<add>
+				<mod>
+					<jdn>
+						<get field="Дата"/>
+					</jdn>
+					<get value="7"/>
+				</mod>
+				<get value="1"/>
+			</add>
+		</function>
+		
+		<function name="ДеньНедели">
+			<choose>
+				<get field="НомерДняНедели"/>
+				<get value="Пн"/>
+				<get value="Вт"/>
+				<get value="Ср"/>
+				<get value="Чт"/>
+				<get value="Пт"/>
+				<get value="Сб"/>
+				<get value="Вс"/>
+			</choose>
+		</function>
+		
+		<function name="Неделя">
+			<date>
+				<year><get field="Дата"/></year>
+				<month><get field="Дата"/></month>
+				<add>
+					<day><get field="Дата"/></day>
+					<choose>
+						<get field="НомерДняНедели"/>
+						<get value="4"/>
+						<get value="3"/>
+						<get value="2"/>
+						<get value="1"/>
+						<get value="0"/>
+						<get value="6"/>
+						<get value="5"/>
+					</choose>
+				</add>
+			</date>
+		</function>
+		
+		<function name="Месяц">
+			<substring>
+				<get field="Дата"/>
+				<get value="3"/>
+				<get value="5"/>
+			</substring>
+		</function>
+		
+		<function name="Год">
+			<substring>
+				<get field="Дата"/>
+				<get value="3"/>
+				<get value="2"/>
+			</substring>
+		</function>
+		
+		<function name="Постановщик">
+			<get field="Задача.Постановщик"/>
+		</function>
+		
+		<function name="Организация">
+			<get field="Задача.Организация"/>
+		</function>
+		
+		<function name="Проект">
+			<get field="Задача.Проект"/>
+		</function>
+		
+		<function name="Отработано">
+			<if>
+				<and>
+					<ne><get field="Начало"/><null/></ne>
+					<ne><get field="Окончание"/><null/></ne>
+				</and>
+				<add>
+					<sub>
+						<precise><get field="Окончание"/><get value="0"/></precise>
+						<precise><get field="Начало"/><get value="0"/></precise>
+					</sub>
+					<div>
+						<mul>
+							<sub>
+								<sub>
+									<get field="Окончание"/>
+									<precise><get field="Окончание"/><get value="0"/></precise>
+								</sub>
+								<sub>
+									<get field="Начало"/>
+									<precise><get field="Начало"/><get value="0"/></precise>
+								</sub>
+							</sub>
+							<get value="100"/>
+						</mul>
+						<get value="60"/>
+					</div>
+				</add>
+				<null/>
+			</if>
+		</function>
+		
+		<function name="ТекущееВремя">
+			<add>
+				<substring><now/><get value="1"/><get value="2"/></substring>
+				<choose>
+					<add>
+						<div>
+							<add>
+								<substring><now/><get value="4"/><get value="2"/></substring>
+								<get value="7"/>
+							</add>
+							<get value="15"/>
+						</div>
+						<get value="1"/>
+					</add>
+					<get value="0.00"/>
+					<get value="0.15"/>
+					<get value="0.30"/>
+					<get value="0.45"/>
+					<get value="1.00"/>
+				</choose>
+			</add>
+		</function>
+		
+		<state name="constructor">
+			<function name="Дата">
+				<today/>
+			</function>
+			<function name="Начало">
+				<get field="ТекущееВремя"/>
+			</function>
+		</state>
+		
+		<state name="Начать">
+			<function name="Дата">
+				<today/>
+			</function>
+			<function name="Начало">
+				<get field="ТекущееВремя"/>
+			</function>
+		</state>
+		
+		<state name="Завершить">
+			<function name="Окончание">
+				<get field="ТекущееВремя"/>
+			</function>
+		</state>
+		
+		<index name="Работа">
+			<key field="Дата"/>
+			<key field="Начало"/>
+		</index>
+		
+		<index name="РаботаЗадача">
+			<key field="Задача"/>
+			<key field="Дата"/>
+			<key field="Начало"/>
+		</index>
+		
+		<index name="РаботаПроект">
+			<key field="Проект"/>
+			<key field="Дата"/>
+			<key field="Начало"/>
+		</index>
+	</type>
+
+	<query id="Задача-Работа">
+		<select from="РаботаЗадача">
+			<where key="Задача" field="id"/>
+		</select>
+	</query>
+
+	<layout name="Работа">
+		<column width="2"/>
+		<column width="40"/>
+		<column width="20"/>
+		<row/>
+			
+		<row indent="1" cols="2">
+			<button name="Записать" text="Записать и закрыть"/>
+			<label text=" "/>
+			<button name="Начать" text="Начать"/>
+			<label text=" "/>
+			<button name="Завершить" text="Завершить"/>
+		</row>
+		<row/>
+			
+		<row indent="1" bind="Задача" bold="1" cols="2"/>
+		<row/>
+			
+		<row indent="1" text="Дата"/>
+		<cell bind="Дата" outline="2">
+			<edit type="date"/>
+			<tool type="calendar"/>
+		</cell>
+		<row/>
+			
+		<row indent="1" text="Начало (час,мин)"/>
+		<cell bind="Начало" outline="2">
+			<edit grow="1"/>
+			<tool type="calculator"/>
+		</cell>
+		<row/>
+			
+		<row indent="1" text="Окончание (час,мин)"/>
+		<cell bind="Окончание" outline="2">
+			<edit grow="1"/>
+			<tool type="calculator"/>
+		</cell>
+		<row/>
+			
+		<row indent="1" text="Содержание"/>
+		<row/>
+		<row indent="1" bind="Содержание" cols="2" outline="2">
+			<edit type="area" grow="1" vertical="10"/>
+		</row>
+		<row/>
+	</layout>
+	
+</unit>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<unit name="Общие">
+
+	<type name="main" scope="global">
+		
+		<function name="title">
+			<get value="Задачи"/>
+		</function>
+	
+	</type>
+	
+	<layout name="main">
+		<column width="2"/>
+		<column width="4"/>
+		<column width="60"/>
+		<row/>
+		<row indent="1" text="Документы" bold="1" color="009646" cols="2"/>
+		<row/>
+		<row indent="2">
+			<link reference="Задача" type="list" text="Задачи"/>
+		</row>
+		<row/>
+		<row indent="2">
+			<link reference="Работа" type="list" text="Работа"/>
+		</row>
+		<row/>
+		<row indent="2">
+			<link reference="График" type="list" text="Графики"/>
+		</row>
+		<row/>
+		<row/>
+		<row indent="1" text="Справочники" bold="1" color="009646" cols="2"/>
+		<row/>
+		<row indent="2">
+			<link reference="Организация" type="list" text="Организации"/>
+		</row>
+		<row/>
+		<row indent="2">
+			<link reference="Договор" type="list" text="Договоры"/>
+		</row>
+		<row/>
+		<row indent="2">
+			<link reference="Сотрудник" type="list" text="Сотрудники"/>
+		</row>
+		<row/>
+	</layout>
+
+	<format name="Дата" DLF="D"/>
+	<format name="Время" NFD="2" NDS=":"/>
+	<format name="Число2" NFD="2"/>
+		
+</unit>

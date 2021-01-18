@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<unit name="График">
+
+	<type name="График" scope="global">
+		<field.date name="Начало" width="10"/>
+		<field.date name="Окончание" width="10"/>
+		<field.ref name="Проект" type="Договор" width="10"/>
+		<field.array name="Строки" type="Строка"/>
+		<field.object name="Всего" type="Всего"/>
+		<field.string name="Заголовок"/>
+		<field.array name="УпорядоченныеСтроки" type="Строка" variable="1"/>
+		
+		<function name="title">
+			<string>
+				<get value="График за "/>
+				<period>
+					<get field="Начало"/>
+					<get field="Окончание"/>
+				</period>
+			</string>
+		</function>
+		
+		<function name="Заголовок">
+			<period>
+				<get field="Начало"/>
+				<get field="Окончание"/>
+			</period>
+		</function>
+		
+		<index name="График">
+		</index>
+		
+		<state name="Заполнить">
+			
+			<function name="Строки">
+				<select><get value="ЗапросВыполненныхРабот"/></select>
+			</function>
+			
+		</state>
+		
+		<state name="Упорядочить">
+			
+			<function name="УпорядоченныеСтроки">
+				<select><get value="ЗапросСтрок"/></select>
+			</function>
+			
+			<function name="ПрименениеПорядка">
+				<get value="1"/>
+			</function>
+			
+		</state>
+		
+		<state name="ПрименениеПорядка">
+
+			<function name="Строки">
+				<select><get value="ЗапросУпорядоченныхСтрок"/></select>
+			</function>
+			
+			<function name="ОчисткаУпорядоченных">
+				<get value="1"/>
+			</function>
+			
+		</state>
+		
+		<state name="ОчисткаУпорядоченных">
+			
+			<function name="УпорядоченныеСтроки">
+				<select><get value="ПустойЗапрос"/></select>
+			</function>
+			
+		</state>
+		
+	</type>
+	
+	<type name="Строка">
+		<field.date name="Дата" width="10"/>
+		<field.string name="Начало"/>
+		<field.string name="Окончание"/>
+		<field.number name="Отработано" precision="2"/>
+		<field.number name="Расчет" precision="2"/>
+		<field.string name="Содержание"/>
+		
+		<!--<function name="Расчет">
+			<get field="Отработано"/>
+		</function>-->
+		
+		<index name="График-Строка">
+			<key field="owner"/>
+			<total field="Отработано" precision="2"/>
+			<total field="Расчет" precision="2"/>
+		</index>
+		<index name="График-СтрокаПорядок">
+			<key field="owner"/>
+			<key field="member"/>
+			<key field="Дата"/>
+			<key field="Начало"/>
+		</index>
+	</type>
+	
+	<type name="Всего">
+		<field.number name="Расчет" precision="2"/>
+		
+		<function name="Расчет">
+			<overall>
+				<get value="ЗапросВсего"/>
+				<get value="Расчет"/>
+			</overall>
+		</function>
+	</type>
+
+	<query name="ЗапросВыполненныхРабот">
+		<select from="РаботаПроект">
+			<where key="Проект" field="Проект"/>
+			<range key="Дата" from="Начало" to="Окончание"/>
+			<detail field="Дата" as="Дата"/>
+			<detail field="Начало" as="Начало"/>
+			<detail field="Окончание" as="Окончание"/>
+			<detail field="Отработано" as="Отработано"/>
+			<detail field="Отработано" as="Расчет"/>
+			<detail field="Содержание" as="Содержание"/>
+		</select>
+	</query>
+	
+	<query name="ЗапросВсего">
+		<select from="График-Строка">
+			<where key="owner" field="owner"/>
+		</select>
+	</query>
+	
+	<query name="ЗапросСтрок">
+		<select from="График-СтрокаПорядок">
+			<where key="owner" field="id"/>
+			<where key="member" value="Строки"/>
+			<detail field="Дата" as="Дата"/>
+			<detail field="Начало" as="Начало"/>
+			<detail field="Окончание" as="Окончание"/>
+			<detail field="Отработано" as="Отработано"/>
+			<detail field="Расчет" as="Расчет"/>
+			<detail field="Содержание" as="Содержание"/>
+		</select>
+	</query>
+	
+	<query name="ЗапросУпорядоченныхСтрок">
+		<select from="График-СтрокаПорядок">
+			<where key="owner" field="id"/>
+			<where key="member" value="УпорядоченныеСтроки"/>
+			<detail field="Дата" as="Дата"/>
+			<detail field="Начало" as="Начало"/>
+			<detail field="Окончание" as="Окончание"/>
+			<detail field="Отработано" as="Отработано"/>
+			<detail field="Расчет" as="Расчет"/>
+			<detail field="Содержание" as="Содержание"/>
+		</select>
+	</query>
+	
+	<query name="ПустойЗапрос">
+	</query>
+	
+	<!--<form name="График">-->
+	<layout name="График">
+		<column width="2"/>
+		<column width="10"/>
+		<column width="10"/>
+		<column width="10"/>
+		<column width="10"/>
+		<column width="10"/>
+		<column width="35"/>
+		<bar/>
+		<bar indent="1" cols="6">
+			<button name="Записать" text="Записать и закрыть"/><label text=" "/>
+			<button name="Заполнить" text="Заполнить"/><label text=" "/>
+		</bar>
+		<bar/>
+		<bar indent="1" text="Период с: " align="right"/>
+		<cell bind="Начало" cols="2" outline="2">
+			<edit type="date"/>
+			<tool type="calendar"/>
+		</cell>
+		<bar/>
+		<bar indent="1" text="по: " align="right"/>
+		<cell bind="Окончание" cols="2" outline="2">
+			<edit type="date"/>
+			<tool type="calendar"/>
+		</cell>
+		<bar/>
+		<bar indent="1" text="Проект: " align="right"/>
+		<cell bind="Проект" cols="2" outline="2">
+			<edit type="ref" grow="1"/>
+			<tool type="choosing"/>
+		</cell>
+		
+		<row/>
+		<row/>
+		<cell bind="Заголовок" size="20" bold="1" align="center" cols="6"/>
+		<bar/>
+		<bar bind="Строки" indent="1" cols="6">
+			<button name="Строки.add" text="Добавить"/><label text=" "/>
+			<button name="Строки.copy" text="Скопировать"/><label text=" "/>
+			<button name="Строки.remove" text="Удалить"/><label text=" "/>
+			<button name="Упорядочить" text="Упорядочить"/><label text=" "/>
+			<button name="Строки.up" text="▲"/><label text=" "/>
+			<button name="Строки.down" text="▼"/><label text=" "/>
+		</bar>
+		<row/>
+		<row/>
+		<cell text="Дата" align="center" wrap="1" border="2102"/>
+		<cell text="Начало" align="center" wrap="1" border="2101"/>
+		<cell text="Окончание" align="center" wrap="1" border="2101"/>
+		<cell text="Отработано, часов" align="center" wrap="1" cols="2" border="2101"/>
+		<cell text="Содержание" align="center" wrap="1" border="2201"/>
+		<row/>
+		<cell border="0122"/>
+		<cell border="0121"/>
+		<cell border="0121"/>
+		<cell text="всего" align="center" wrap="1" border="1121"/>
+		<cell text="из них включено в расчет" align="center" wrap="1" border="1121"/>
+		<cell border="0221"/>
+	</layout>
+	
+	<layout name="График-Строка">
+		<line/>
+		<cell bind="Дата" align="center" border="1112"/>
+		<cell bind="Начало" format="Время" align="center" border="1"/>
+		<cell bind="Окончание" format="Время" align="center" border="1"/>
+		<cell bind="Отработано" align="center" border="1"/>
+		<cell bind="Расчет" align="center" border="1">
+			<edit grow="1"/>
+			<tool type="calculator"/>
+		</cell>
+		<cell bind="Содержание" wrap="1" border="1211"/>
+	</layout>
+
+	<layout name="График-Всего">
+		<row/>
+		<cell text="Всего: " bold="1" align="right" cols="4" border="2122"/>
+		<cell bind="Расчет" format="Число2" bold="1" align="center" border="2121"/>
+		<cell border="2221"/>
+		<row/>
+		<row/>
+		<row/>
+	</layout>
+
+</unit>

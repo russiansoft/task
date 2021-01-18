@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<unit name="Задача">
+	
+	<type name="Задача" title="Задача" scope="global">
+		<field.date name="Дата"/>
+		<field.string name="ДеньНедели" title="Д" width="3" indexing="key"/>
+		<field.number name="НомерДняНедели" variable="1"/>
+		<field.date name="Срок" width="9" indexing="sort"/>
+		<field.date name="Неделя" width="9" indexing="key"/>
+		<field.ref name="Организация" type="Организация" title="Организация" width="20" indexing="key"/>
+		<field.ref name="Проект" type="Договор" width="12" indexing="key"/>
+		<field.ref name="Постановщик" type="Сотрудник" width="20" indexing="key"/>
+		<field.string name="Тема" width="25"/>
+		<field.string name="Содержание"/>
+		<field.date name="ДатаИсполнения" title="Дата исполнения"/>
+		<field.boolean name="Активная" title="А" width="2" indexing="key"/>
+
+		<function name="title">
+			<get field="Тема"/>
+		</function>
+
+		<function name="Организация">
+			<get field="Постановщик.Организация"/>
+		</function>
+
+		<function name="Активная">
+			<eq><get field="ДатаИсполнения"/><null/></eq>
+		</function>
+
+		<function name="НомерДняНедели">
+			<add><mod><jdn><get field="Срок"/></jdn><get value="7"/></mod><get value="1"/></add>
+		</function>
+
+		<function name="ДеньНедели">
+			<choose>
+				<get field="НомерДняНедели"/>
+				<get value="Пн"/>
+				<get value="Вт"/>
+				<get value="Ср"/>
+				<get value="Чт"/>
+				<get value="Пт"/>
+				<get value="Сб"/>
+				<get value="Вс"/>
+			</choose>
+		</function>
+
+		<function name="Неделя">
+			<date>
+				<year><get field="Срок"/></year>
+				<month><get field="Срок"/></month>
+				<add>
+					<day><get field="Срок"/></day>
+					<choose>
+						<get field="НомерДняНедели"/>
+						<get value="4"/>
+						<get value="3"/>
+						<get value="2"/>
+						<get value="1"/>
+						<get value="0"/>
+						<get value="6"/>
+						<get value="5"/>
+					</choose>
+				</add>
+			</date>
+		</function>
+
+		<state name="constructor">
+
+			<function name="Дата">
+				<today/>
+			</function>
+
+			<function name="Срок">
+				<today/>
+			</function>
+			
+		</state>
+
+		<index name="Задача">
+			<key field="Срок"/>
+		</index>
+	</type>
+		
+	<layout name="Задача">
+		<column width="2"/>
+		<column width="25"/>
+		<column width="30"/>
+		<row/>
+			
+		<row indent="1">
+			<button name="Записать" text="Записать и закрыть"/>
+		</row>
+		<cell>
+			<link reference="Работа:Задача-Работа" type="sublist" text="Работа"/>
+		</cell>
+		<row/>
+			
+		<row indent="1" text="Срок"/>
+		<cell bind="Срок" outline="2">
+			<edit type="date"/>
+			<tool type="calendar"/>
+		</cell>
+		<row/>
+			
+		<row indent="1" text="Постановщик"/>
+		<cell bind="Постановщик" outline="2">
+			<edit type="ref" grow="1"/>
+			<tool type="choosing"/>
+			<!--<tool type="opening"/>-->
+		</cell>
+		<row/>
+			
+		<row indent="1" text="Проект"/>
+		<cell bind="Проект" outline="2">
+			<edit type="ref" grow="1"/>
+			<tool type="choosing"/>
+		</cell>
+		<row/>
+			
+		<row indent="1" text="Тема"/>
+		<row/>
+		<row indent="1" bind="Тема" cols="2" outline="2">
+			<edit type="area" grow="1" vertical="2"/>
+		</row>
+		<row/>
+			
+		<row indent="1" text="Содержание"/>
+		<row/>
+		<row indent="1" bind="Содержание" cols="2" outline="2">
+			<edit type="area" grow="1" vertical="10"/>
+		</row>
+		<row/>
+			
+		<row indent="1" text="Дата постановки"/>
+		<cell bind="Дата" outline="2">
+			<edit type="date"/>
+			<tool type="calendar"/>
+		</cell>
+		<row/>
+			
+		<row indent="1" text="Дата исполнения"/>
+		<cell bind="ДатаИсполнения" outline="2">
+			<edit type="date"/>
+			<tool type="calendar"/>
+		</cell>
+		<row/>
+	</layout>
+
+</unit>
