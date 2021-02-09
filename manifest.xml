@@ -8,4 +8,5 @@
 	<include unit="График"/>
 	<include unit="Задача"/>
 	<include unit="Работа"/>
+	<include unit="interval"/>
 </package>

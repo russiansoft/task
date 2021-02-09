@@ -113,12 +113,12 @@
 		<select from="РаботаПроект">
 			<where key="Проект" field="Проект"/>
 			<range key="Дата" from="Начало" to="Окончание"/>
-			<detail field="Дата" as="Дата"/>
-			<detail field="Начало" as="Начало"/>
-			<detail field="Окончание" as="Окончание"/>
-			<detail field="Отработано" as="Отработано"/>
-			<detail field="Отработано" as="Расчет"/>
-			<detail field="Содержание" as="Содержание"/>
+			<get field="Дата" as="Дата"/>
+			<get field="Начало" as="Начало"/>
+			<get field="Окончание" as="Окончание"/>
+			<get field="Отработано" as="Отработано"/>
+			<get field="Отработано" as="Расчет"/>
+			<get field="Содержание" as="Содержание"/>
 		</select>
 	</query>
 	
@@ -132,12 +132,12 @@
 		<select from="График-СтрокаПорядок">
 			<where key="owner" field="id"/>
 			<where key="member" value="Строки"/>
-			<detail field="Дата" as="Дата"/>
-			<detail field="Начало" as="Начало"/>
-			<detail field="Окончание" as="Окончание"/>
-			<detail field="Отработано" as="Отработано"/>
-			<detail field="Расчет" as="Расчет"/>
-			<detail field="Содержание" as="Содержание"/>
+			<get field="Дата" as="Дата"/>
+			<get field="Начало" as="Начало"/>
+			<get field="Окончание" as="Окончание"/>
+			<get field="Отработано" as="Отработано"/>
+			<get field="Расчет" as="Расчет"/>
+			<get field="Содержание" as="Содержание"/>
 		</select>
 	</query>
 	
@@ -145,12 +145,12 @@
 		<select from="График-СтрокаПорядок">
 			<where key="owner" field="id"/>
 			<where key="member" value="УпорядоченныеСтроки"/>
-			<detail field="Дата" as="Дата"/>
-			<detail field="Начало" as="Начало"/>
-			<detail field="Окончание" as="Окончание"/>
-			<detail field="Отработано" as="Отработано"/>
-			<detail field="Расчет" as="Расчет"/>
-			<detail field="Содержание" as="Содержание"/>
+			<get field="Дата" as="Дата"/>
+			<get field="Начало" as="Начало"/>
+			<get field="Окончание" as="Окончание"/>
+			<get field="Отработано" as="Отработано"/>
+			<get field="Расчет" as="Расчет"/>
+			<get field="Содержание" as="Содержание"/>
 		</select>
 	</query>
 	
