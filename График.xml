@@ -33,17 +33,37 @@
 		
 		<state name="Заполнить">
 			
-			<function name="Строки">
-				<select><get value="ЗапросВыполненныхРабот"/></select>
-			</function>
+			<query name="Строки">
+				<select from="Работа">
+					<where key="Проект" field="Проект"/>
+					<range key="Дата" from="Начало" to="Окончание"/>
+					<get field="Дата" as="Дата"/>
+					<get field="Начало" as="Начало"/>
+					<get field="Окончание" as="Окончание"/>
+					<get field="Отработано" as="Отработано"/>
+					<get field="Отработано" as="Расчет"/>
+					<get field="Содержание" as="Содержание"/>
+				</select>
+			</query>
 			
 		</state>
 		
 		<state name="Упорядочить">
 			
-			<function name="УпорядоченныеСтроки">
-				<select><get value="ЗапросСтрок"/></select>
-			</function>
+			<query name="УпорядоченныеСтроки">
+				<select from="График-Строка">
+					<where key="owner" field="id"/>
+					<where key="member" value="Строки"/>
+					<order key="Дата"/>
+					<order key="Начало"/>
+					<get field="Дата" as="Дата"/>
+					<get field="Начало" as="Начало"/>
+					<get field="Окончание" as="Окончание"/>
+					<get field="Отработано" as="Отработано"/>
+					<get field="Расчет" as="Расчет"/>
+					<get field="Содержание" as="Содержание"/>
+				</select>
+			</query>
 			
 			<function name="ПрименениеПорядка">
 				<get value="1"/>
@@ -53,9 +73,20 @@
 		
 		<state name="ПрименениеПорядка">
 
-			<function name="Строки">
-				<select><get value="ЗапросУпорядоченныхСтрок"/></select>
-			</function>
+			<query name="Строки">
+				<select from="График-Строка">
+					<where key="owner" field="id"/>
+					<where key="member" value="УпорядоченныеСтроки"/>
+					<order key="Дата"/>
+					<order key="Начало"/>
+					<get field="Дата" as="Дата"/>
+					<get field="Начало" as="Начало"/>
+					<get field="Окончание" as="Окончание"/>
+					<get field="Отработано" as="Отработано"/>
+					<get field="Расчет" as="Расчет"/>
+					<get field="Содержание" as="Содержание"/>
+				</select>
+			</query>
 			
 			<function name="ОчисткаУпорядоченных">
 				<get value="1"/>
@@ -65,9 +96,8 @@
 		
 		<state name="ОчисткаУпорядоченных">
 			
-			<function name="УпорядоченныеСтроки">
-				<select><get value="ПустойЗапрос"/></select>
-			</function>
+			<query name="УпорядоченныеСтроки">
+			</query>
 			
 		</state>
 		
@@ -77,8 +107,8 @@
 		<field.date name="Дата" width="10"/>
 		<field.string name="Начало"/>
 		<field.string name="Окончание"/>
-		<field.number name="Отработано" precision="2"/>
-		<field.number name="Расчет" precision="2"/>
+		<field.number name="Отработано" precision="2" indexing="total"/>
+		<field.number name="Расчет" precision="2" indexing="total"/>
 		<field.string name="Содержание"/>
 		
 		<!--<function name="Расчет">
@@ -89,12 +119,6 @@
 			<key field="owner"/>
 			<total field="Отработано" precision="2"/>
 			<total field="Расчет" precision="2"/>
-		</index>
-		<index name="График-СтрокаПорядок">
-			<key field="owner"/>
-			<key field="member"/>
-			<key field="Дата"/>
-			<key field="Начало"/>
 		</index>
 	</type>
 	
@@ -109,52 +133,11 @@
 		</function>
 	</type>
 
-	<query name="ЗапросВыполненныхРабот">
-		<select from="РаботаПроект">
-			<where key="Проект" field="Проект"/>
-			<range key="Дата" from="Начало" to="Окончание"/>
-			<get field="Дата" as="Дата"/>
-			<get field="Начало" as="Начало"/>
-			<get field="Окончание" as="Окончание"/>
-			<get field="Отработано" as="Отработано"/>
-			<get field="Отработано" as="Расчет"/>
-			<get field="Содержание" as="Содержание"/>
-		</select>
-	</query>
-	
 	<query name="ЗапросВсего">
 		<select from="График-Строка">
 			<where key="owner" field="owner"/>
+			<get total="Расчет"/>
 		</select>
-	</query>
-	
-	<query name="ЗапросСтрок">
-		<select from="График-СтрокаПорядок">
-			<where key="owner" field="id"/>
-			<where key="member" value="Строки"/>
-			<get field="Дата" as="Дата"/>
-			<get field="Начало" as="Начало"/>
-			<get field="Окончание" as="Окончание"/>
-			<get field="Отработано" as="Отработано"/>
-			<get field="Расчет" as="Расчет"/>
-			<get field="Содержание" as="Содержание"/>
-		</select>
-	</query>
-	
-	<query name="ЗапросУпорядоченныхСтрок">
-		<select from="График-СтрокаПорядок">
-			<where key="owner" field="id"/>
-			<where key="member" value="УпорядоченныеСтроки"/>
-			<get field="Дата" as="Дата"/>
-			<get field="Начало" as="Начало"/>
-			<get field="Окончание" as="Окончание"/>
-			<get field="Отработано" as="Отработано"/>
-			<get field="Расчет" as="Расчет"/>
-			<get field="Содержание" as="Содержание"/>
-		</select>
-	</query>
-	
-	<query name="ПустойЗапрос">
 	</query>
 	
 	<!--<form name="График">-->

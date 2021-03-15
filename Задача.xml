@@ -9,8 +9,8 @@
 		<field.date name="Неделя"/>
 		<field.date name="Дата" title="Дата" width="9" indexing="sort"/>
 		<field.ref name="Организация" type="Организация" title="Организация" width="20" indexing="key"/>
-		<field.ref name="Проект" type="Договор" width="12" indexing="key"/>
 		<field.ref name="Постановщик" type="Сотрудник" width="20" indexing="key"/>
+		<field.ref name="Проект" type="Договор" width="12" indexing="key"/>
 		<field.string name="Тема" width="25"/>
 		<field.string name="Содержание"/>
 		<field.date name="ДатаИсполнения" title="Дата исполнения"/>
@@ -104,6 +104,13 @@
 		</cell>
 		<row/>
 			
+		<row indent="1" text="Дата постановки"/>
+		<cell bind="Дата" outline="2">
+			<edit type="date"/>
+			<tool type="calendar"/>
+		</cell>
+		<row/>
+			
 		<row indent="1" text="Постановщик"/>
 		<cell bind="Постановщик" outline="2">
 			<edit type="ref" grow="1"/>
@@ -131,13 +138,6 @@
 		<row indent="1" bind="Содержание" cols="2" outline="2">
 			<edit type="area" grow="1" vertical="10"/>
 		</row>
-		<row/>
-			
-		<row indent="1" text="Дата постановки"/>
-		<cell bind="Дата" outline="2">
-			<edit type="date"/>
-			<tool type="calendar"/>
-		</cell>
 		<row/>
 			
 		<row indent="1" text="Дата исполнения"/>
