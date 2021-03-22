@@ -3,7 +3,7 @@
 <unit name="Задача">
 	
 	<type name="Задача" title="Задача" scope="global">
-		<field.string name="ДеньНедели" title="Д" width="3"/>
+		<field.string name="ДеньНедели" title="📅" width="3"/>
 		<field.number name="НомерДняНедели" variable="1"/>
 		<field.date name="Срок" width="9" indexing="interval"/>
 		<field.date name="Неделя"/>
