@@ -35,8 +35,8 @@
 			
 			<query name="Строки">
 				<select from="Работа">
-					<where key="Проект" field="Проект"/>
-					<range key="Дата" from="Начало" to="Окончание"/>
+					<filter by="Проект" field="Проект"/>
+					<range by="Дата" from="Начало" to="Окончание"/>
 					<get field="Дата" as="Дата"/>
 					<get field="Начало" as="Начало"/>
 					<get field="Окончание" as="Окончание"/>
@@ -52,10 +52,10 @@
 			
 			<query name="УпорядоченныеСтроки">
 				<select from="График-Строка">
-					<where key="owner" field="id"/>
-					<where key="member" value="Строки"/>
-					<order key="Дата"/>
-					<order key="Начало"/>
+					<filter by="owner" field="id"/>
+					<filter by="member" value="Строки"/>
+					<order by="Дата"/>
+					<order by="Начало"/>
 					<get field="Дата" as="Дата"/>
 					<get field="Начало" as="Начало"/>
 					<get field="Окончание" as="Окончание"/>
@@ -75,10 +75,10 @@
 
 			<query name="Строки">
 				<select from="График-Строка">
-					<where key="owner" field="id"/>
-					<where key="member" value="УпорядоченныеСтроки"/>
-					<order key="Дата"/>
-					<order key="Начало"/>
+					<filter by="owner" field="id"/>
+					<filter by="member" value="УпорядоченныеСтроки"/>
+					<order by="Дата"/>
+					<order by="Начало"/>
 					<get field="Дата" as="Дата"/>
 					<get field="Начало" as="Начало"/>
 					<get field="Окончание" as="Окончание"/>
@@ -135,7 +135,7 @@
 
 	<query name="ЗапросВсего">
 		<select from="График-Строка">
-			<where key="owner" field="owner"/>
+			<filter by="owner" field="owner"/>
 			<get total="Расчет"/>
 		</select>
 	</query>

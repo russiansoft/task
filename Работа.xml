@@ -191,7 +191,7 @@
 
 	<query id="Задача-Работа">
 		<select from="РаботаЗадача">
-			<where key="Задача" field="id"/>
+			<filter by="Задача" field="id"/>
 		</select>
 	</query>
 
