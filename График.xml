@@ -141,7 +141,7 @@
 	</query>
 	
 	<!--<form name="График">-->
-	<layout name="График">
+	<form name="График">
 		<column width="2"/>
 		<column width="10"/>
 		<column width="10"/>
@@ -199,9 +199,9 @@
 		<cell text="всего" align="center" wrap="1" border="1121"/>
 		<cell text="из них включено в расчет" align="center" wrap="1" border="1121"/>
 		<cell border="0221"/>
-	</layout>
+	</form>
 	
-	<layout name="График-Строка">
+	<form name="График-Строка">
 		<line/>
 		<cell bind="Дата" align="center" border="1112"/>
 		<cell bind="Начало" format="Время" align="center" border="1"/>
@@ -212,9 +212,9 @@
 			<tool type="calculator"/>
 		</cell>
 		<cell bind="Содержание" wrap="1" border="1211"/>
-	</layout>
+	</form>
 
-	<layout name="График-Всего">
+	<form name="График-Всего">
 		<row/>
 		<cell text="Всего: " bold="1" align="right" cols="4" border="2122"/>
 		<cell bind="Расчет" format="Число2" bold="1" align="center" border="2121"/>
@@ -222,6 +222,6 @@
 		<row/>
 		<row/>
 		<row/>
-	</layout>
+	</form>
 
 </unit>

@@ -13,7 +13,7 @@
 		</index>
 	</type>
 		
-	<layout name="Сотрудник">
+	<form name="Сотрудник">
 		<column width="2"/>
 		<column width="30"/>
 		<column width="30"/>
@@ -33,6 +33,6 @@
 			<tool type="choosing"/>
 		</cell>
 		<row/>
-	</layout>
+	</form>
 
 </unit>

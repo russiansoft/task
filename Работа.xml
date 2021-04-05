@@ -195,7 +195,7 @@
 		</select>
 	</query>
 
-	<layout name="Работа">
+	<form name="Работа">
 		<column width="2"/>
 		<column width="40"/>
 		<column width="20"/>
@@ -240,6 +240,6 @@
 			<edit type="area" grow="1" vertical="10"/>
 		</row>
 		<row/>
-	</layout>
+	</form>
 	
 </unit>

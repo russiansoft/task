@@ -10,7 +10,7 @@
 	
 	</type>
 	
-	<layout name="main">
+	<form name="main">
 		<column width="2"/>
 		<column width="4"/>
 		<column width="60"/>
@@ -44,7 +44,7 @@
 			<link reference="Сотрудник" type="list" text="Сотрудники"/>
 		</row>
 		<row/>
-	</layout>
+	</form>
 
 	<format name="Дата" DLF="D"/>
 	<format name="Время" NFD="2" NDS=":"/>

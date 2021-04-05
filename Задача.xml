@@ -83,7 +83,7 @@
 		</index>
 	</type>
 		
-	<layout name="Задача">
+	<form name="Задача">
 		<column width="2"/>
 		<column width="25"/>
 		<column width="30"/>
@@ -146,6 +146,6 @@
 			<tool type="calendar"/>
 		</cell>
 		<row/>
-	</layout>
+	</form>
 
 </unit>

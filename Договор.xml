@@ -12,7 +12,7 @@
 		</index>
 	</type>
 		
-	<layout name="Договор">
+	<form name="Договор">
 		<column width="2"/>
 		<column width="30"/>
 		<column width="30"/>
@@ -26,6 +26,6 @@
 			<edit grow="1"/>
 		</cell>
 		<row/>
-	</layout>
+	</form>
 	
 </unit>
