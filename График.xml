@@ -12,13 +12,13 @@
 		<field.array name="УпорядоченныеСтроки" type="Строка" variable="1"/>
 		
 		<function name="title">
-			<string>
+			<join>
 				<get value="График за "/>
 				<period>
 					<get field="Начало"/>
 					<get field="Окончание"/>
 				</period>
-			</string>
+			</join>
 		</function>
 		
 		<function name="Заголовок">
