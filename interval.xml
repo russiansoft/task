@@ -7,7 +7,7 @@
 		<field.date name="to"/>
 	</type>
 
-	<layout name="interval">
+	<form name="interval">
 		<column width="2"/>
 		<column width="13"/>
 		<column width="13"/>
@@ -28,6 +28,6 @@
 		</cell>
 		
 		
-	</layout>
+	</form>
 	
 </unit>
