@@ -5,6 +5,7 @@
 	<type name="Сотрудник" title="Сотрудник" scope="global">
 		<field.string name="Наименование" width="30" indexing="sort"/>
 		<field.ref name="Организация" type="Организация" title="Организация" width="20" indexing="key"/>
+		<field.ref name="Проект" type="Договор" title="Проект" width="20" indexing="key"/>
 		<function name="title">
 			<get field="Наименование"/>
 		</function>
@@ -29,6 +30,12 @@
 		<row/>
 		<row indent="1" text="Организация"/>
 		<cell bind="Организация" outline="2">
+			<edit type="ref" grow="1"/>
+			<tool type="choosing"/>
+		</cell>
+		<row/>
+		<row indent="1" text="Договор"/>
+		<cell bind="Проект" outline="2">
 			<edit type="ref" grow="1"/>
 			<tool type="choosing"/>
 		</cell>

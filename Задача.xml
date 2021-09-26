@@ -14,7 +14,7 @@
 		<field.string name="Тема" width="25"/>
 		<field.string name="Содержание"/>
 		<field.date name="ДатаИсполнения" title="Дата исполнения"/>
-		<field.boolean name="Активная" title="А" width="2" indexing="key"/>
+		<field.boolean name="Активная" title="⭐" width="2" indexing="key"/>
 
 		<function name="title">
 			<get field="Тема"/>
@@ -77,6 +77,12 @@
 			
 		</state>
 
+		<state name="Постановщик">
+			<function name="Проект">
+				<get field="Постановщик.Проект"/>
+			</function>
+		</state>
+
 		<index name="Задача">
 			<key field="Срок"/>
 			<key field="Дата"/>
@@ -89,12 +95,13 @@
 		<column width="30"/>
 		<row/>
 			
-		<row indent="1">
+		<row indent="1" cols="2">
 			<button name="Записать" text="Записать и закрыть"/>
-		</row>
-		<cell>
+			<label text="  "/>
+			<button name="ТолькоЗаписать" text="Записать" title="Записать"/>
+			<label text="  "/>
 			<link reference="Работа:Задача-Работа" type="sublist" text="Работа"/>
-		</cell>
+		</row>
 		<row/>
 			
 		<row indent="1" text="Срок"/>
@@ -136,7 +143,7 @@
 		<row indent="1" text="Содержание"/>
 		<row/>
 		<row indent="1" bind="Содержание" cols="2" outline="2">
-			<edit type="area" grow="1" vertical="10"/>
+			<edit type="area" grow="1" vertical="9"/>
 		</row>
 		<row/>
 			

@@ -5,3 +5,5 @@ favicon.*
 config.xml
 database.xml
 datafile.xml
+debug.txt
+event.log
