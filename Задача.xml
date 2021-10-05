@@ -15,6 +15,7 @@
 		<field.string name="Содержание"/>
 		<field.date name="ДатаИсполнения" title="Дата исполнения"/>
 		<field.boolean name="Активная" title="⭐" width="2" indexing="key"/>
+		<field.blob name="Изображение"/>
 
 		<function name="title">
 			<get field="Тема"/>
@@ -92,7 +93,8 @@
 	<form name="Задача">
 		<column width="2"/>
 		<column width="25"/>
-		<column width="30"/>
+		<column width="15"/>
+		<column width="20"/>
 		<row/>
 			
 		<row indent="1" cols="2">
@@ -100,7 +102,7 @@
 			<label text="  "/>
 			<button name="ТолькоЗаписать" text="Записать" title="Записать"/>
 			<label text="  "/>
-			<link reference="Работа:Задача-Работа" type="sublist" text="Работа"/>
+			<link reference="Работа:Задача-Работа" type="sublist" text="🕐 Работа"/>
 		</row>
 		<row/>
 			
@@ -119,15 +121,15 @@
 		<row/>
 			
 		<row indent="1" text="Постановщик"/>
-		<cell bind="Постановщик" outline="2">
+		<cell bind="Постановщик" outline="2" cols="2">
 			<edit type="ref" grow="1"/>
 			<tool type="choosing"/>
-			<!--<tool type="opening"/>-->
+			<tool type="opening"/>
 		</cell>
 		<row/>
 			
 		<row indent="1" text="Проект"/>
-		<cell bind="Проект" outline="2">
+		<cell bind="Проект" outline="2" cols="2">
 			<edit type="ref" grow="1"/>
 			<tool type="choosing"/>
 		</cell>
@@ -135,14 +137,14 @@
 			
 		<row indent="1" text="Тема"/>
 		<row/>
-		<row indent="1" bind="Тема" cols="2" outline="2">
-			<edit type="area" grow="1" vertical="2"/>
+		<row indent="1" bind="Тема" cols="3" outline="2">
+			<edit type="area" grow="1" vertical="3"/>
 		</row>
 		<row/>
 			
 		<row indent="1" text="Содержание"/>
 		<row/>
-		<row indent="1" bind="Содержание" cols="2" outline="2">
+		<row indent="1" bind="Содержание" cols="3" outline="2">
 			<edit type="area" grow="1" vertical="9"/>
 		</row>
 		<row/>
@@ -153,6 +155,15 @@
 			<tool type="calendar"/>
 		</cell>
 		<row/>
+		
+		<row/>
+		<row/>
+		<cell bind="Изображение" cols="3" outline="2">
+			<image/>
+		</cell>
+		<row/>		
+		<cell text="Вставка изображения: Ctrl+V" cols="3" color="a0a0a0"/>
+		
 	</form>
 
 </unit>
