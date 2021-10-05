@@ -18,30 +18,30 @@
 		<row indent="1" text="Документы" bold="1" color="009646" cols="2"/>
 		<row/>
 		<row indent="2">
-			<link reference="Задача" type="list" text="Задачи"/>
+			<link reference="Задача" type="list" text="❗ Задачи"/>
 		</row>
 		<row/>
 		<row indent="2">
-			<link reference="Работа" type="list" text="Работа"/>
+			<link reference="Работа" type="list" text="🕐 Работа"/>
 		</row>
 		<row/>
 		<row indent="2">
-			<link reference="График" type="list" text="Графики"/>
+			<link reference="График" type="list" text="❓ Графики"/>
 		</row>
 		<row/>
 		<row/>
 		<row indent="1" text="Справочники" bold="1" color="009646" cols="2"/>
 		<row/>
 		<row indent="2">
-			<link reference="Организация" type="list" text="Организации"/>
+			<link reference="Организация" type="list" text="🏢 Организации"/>
 		</row>
 		<row/>
 		<row indent="2">
-			<link reference="Договор" type="list" text="Договоры"/>
+			<link reference="Договор" type="list" text="🤝 Договоры"/>
 		</row>
 		<row/>
 		<row indent="2">
-			<link reference="Сотрудник" type="list" text="Сотрудники"/>
+			<link reference="Сотрудник" type="list" text="👩‍🏭 Сотрудники"/>
 		</row>
 		<row/>
 	</form>
