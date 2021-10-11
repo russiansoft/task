@@ -15,7 +15,6 @@
 		<field.string name="Содержание"/>
 		<field.date name="ДатаИсполнения" title="Дата исполнения"/>
 		<field.boolean name="Активная" title="⭐" width="2" indexing="key"/>
-		<field.blob name="Изображение"/>
 
 		<function name="title">
 			<get field="Тема"/>
@@ -155,14 +154,6 @@
 			<tool type="calendar"/>
 		</cell>
 		<row/>
-		
-		<row/>
-		<row/>
-		<cell bind="Изображение" cols="3" outline="2">
-			<image/>
-		</cell>
-		<row/>		
-		<cell text="Вставка изображения: Ctrl+V" cols="3" color="a0a0a0"/>
 		
 	</form>
 
