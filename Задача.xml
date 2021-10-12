@@ -141,7 +141,16 @@
 			<edit type="area" grow="1" vertical="3"/>
 		</row>
 		<row/>
-			
+		
+		<row/>
+		<row/>
+		<cell bind="Изображение" cols="3" outline="2">
+			<edit grow="1"/>
+			<tool type="upload"/>
+			<tool type="download"/>
+		</cell>
+		<row/>		
+				
 		<row indent="1" text="Содержание"/>
 		<row/>
 		<row indent="1" bind="Содержание" cols="3" outline="2">
@@ -155,15 +164,7 @@
 			<tool type="calendar"/>
 		</cell>
 		<row/>
-		
-		<row/>
-		<row/>
-		<cell bind="Изображение" cols="3" outline="2">
-			<image/>
-		</cell>
-		<row/>		
-		<cell text="Вставка изображения: Ctrl+V" cols="3" color="a0a0a0"/>
-		
+	
 	</form>
 
 </unit>
