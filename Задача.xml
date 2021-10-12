@@ -15,6 +15,7 @@
 		<field.string name="Содержание"/>
 		<field.date name="ДатаИсполнения" title="Дата исполнения"/>
 		<field.boolean name="Активная" title="⭐" width="2" indexing="key"/>
+		<field.blob name="Изображение"/>
 
 		<function name="title">
 			<get field="Тема"/>
@@ -140,7 +141,16 @@
 			<edit type="area" grow="1" vertical="3"/>
 		</row>
 		<row/>
-			
+		
+		<row/>
+		<row/>
+		<cell bind="Изображение" cols="3" outline="2">
+			<edit grow="1"/>
+			<tool type="upload"/>
+			<tool type="download"/>
+		</cell>
+		<row/>		
+				
 		<row indent="1" text="Содержание"/>
 		<row/>
 		<row indent="1" bind="Содержание" cols="3" outline="2">
@@ -154,7 +164,7 @@
 			<tool type="calendar"/>
 		</cell>
 		<row/>
-		
+	
 	</form>
 
 </unit>
