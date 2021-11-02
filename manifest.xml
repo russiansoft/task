@@ -9,4 +9,5 @@
 	<include unit="Задача"/>
 	<include unit="Работа"/>
 	<include unit="interval"/>
+	<resource file="favicon.svg"/>
 </package>
