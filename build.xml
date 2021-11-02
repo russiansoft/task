@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<build name="task" version="1.0">
+	<use package="task" source="D:\Base\task\packages\task"/>
+</build>
