@@ -15,9 +15,6 @@
 		<column width="4"/>
 		<column width="60"/>
 		<row/>
-		<row/>
-		<cell text="Версия 1.2" cols="2" color="606080"/>
-		<row/>
 		<row indent="1" text="Документы" bold="1" color="009646" cols="2"/>
 		<row/>
 		<row indent="2">
@@ -46,6 +43,10 @@
 		<row indent="2">
 			<link reference="Сотрудник" type="list" text="👩‍🏭 Сотрудники"/>
 		</row>
+		<row/>
+		<row/>
+		<row/>
+		<cell text="Версия 1.3" cols="2" color="606080"/>
 		<row/>
 	</form>
 
