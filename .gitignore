@@ -1,8 +1,2 @@
 */
-*.lnk
-composer.*
-config.xml
-database.xml
-datafile.xml
-debug.txt
-event.log
+
