@@ -98,9 +98,7 @@
 		<row/>
 			
 		<row indent="1" cols="2">
-			<button name="Записать" text="Записать и закрыть"/>
-			<label text="  "/>
-			<button name="ТолькоЗаписать" text="Записать" title="Записать"/>
+			<button name="Save" text="💾 Записать" title="Записать документ"/><label text="  "/>
 			<label text="  "/>
 			<link reference="Работа:Задача-Работа" type="sublist" text="🕐 Работа"/>
 		</row>

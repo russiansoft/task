@@ -202,10 +202,8 @@
 		<row/>
 			
 		<row indent="1" cols="2">
-			<button name="Записать" text="Записать и закрыть"/>
-			<label text=" "/>
-			<button name="Начать" text="Начать"/>
-			<label text=" "/>
+			<button name="Save" text="💾 Записать" title="Записать документ"/><label text="  "/>
+			<button name="Начать" text="Начать"/><label text="  "/>
 			<button name="Завершить" text="Завершить"/>
 		</row>
 		<row/>

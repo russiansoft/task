@@ -26,7 +26,7 @@
 		</row>
 		<row/>
 		<row indent="2">
-			<link reference="График" type="list" text="❓ Графики"/>
+			<link reference="График" type="list" text="💳 Графики"/>
 		</row>
 		<row/>
 		<row/>
@@ -46,7 +46,7 @@
 		<row/>
 		<row/>
 		<row/>
-		<cell text="Версия 1.5" cols="2" color="606080"/>
+		<cell text="Версия 1.5.1" cols="2" color="606080"/>
 		<row/>
 	</form>
 
