@@ -5,6 +5,7 @@
 	<include unit="Организация"/>
 	<include unit="Договор"/>
 	<include unit="Сотрудник"/>
+	<include unit="Вложение"/>
 	<include unit="График"/>
 	<include unit="Задача"/>
 	<include unit="Работа"/>

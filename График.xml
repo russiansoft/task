@@ -15,7 +15,9 @@
 		<!--Заголовок окна-->
 		<function name="title">
 			<join>
-				<get value="График за "/>
+				<get value="График "/>
+				<get field="Проект.Наименование"/>
+				<get value=" за "/>
 				<period>
 					<get field="Начало"/>
 					<get field="Окончание"/>
@@ -165,7 +167,7 @@
 			<button name="Строки.up" text="🡡" title="Вверх"/><label text="  "/>
 			<button name="Строки.down" text="🡣" title="Вниз"/>
 		</bar>-->
-		<bar bind="Строки" indent="1" cols="6">
+		<!-- <bar bind="Строки" indent="1" cols="6">
 			<label grow="1"/>
 			<tool name="Строки.add" text="✚" title="Добавить"/>
 			<tool name="Строки.copy" text="⧉" title="Скопировать"/>
@@ -177,7 +179,20 @@
 			<label text=""/>
 			<tool name="Строки.all" text="⬤" title="Выделить все"/>
 			<tool name="Строки.none" text="◯" title="Снять выделение"/>
+		</bar> -->
+		<bar bind="Строки" indent="1" cols="6">
+			<button name="Строки.add" text="Добавить" title="Добавить"/><label text="  "/>
+			<button name="Строки.copy" text="Скопировать" title="Скопировать"/><label text="  "/>
+			<button name="Строки.remove" text="Удалить" title="Удалить"/><label text="  "/>
+			<button name="Упорядочить" text="Упорядочить" title="Упорядочить"/><label text="  "/>
+			<label text="" grow="1"/>
+			<button name="Строки.all" text="🗹" title="Выделить все"/><label text=" "/>
+			<button name="Строки.none" text="□" title="Снять выделение"/><label text=" "/>
+			<label text=""/>
+			<button name="Строки.up" text="🡡" title="Переместить вверх"/><label text=" "/>
+			<button name="Строки.down" text="🡣" title="Переместить вниз"/>
 		</bar>
+		<bar/>
 		<row/>
 		<cell text="Дата" align="center" wrap="1" border="2102"/>
 		<cell text="Начало" align="center" wrap="1" border="2101"/>

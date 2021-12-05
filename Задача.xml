@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <unit name="Задача">
-	
+
+	<!--Задача-->
 	<type name="Задача" title="Задача" scope="global">
 		<field.string name="ДеньНедели" title="📅" width="3"/>
 		<field.number name="НомерДняНедели" variable="1"/>
@@ -15,7 +16,7 @@
 		<field.string name="Содержание"/>
 		<field.date name="ДатаИсполнения" title="Дата исполнения"/>
 		<field.boolean name="Активная" title="⭐" width="2" indexing="key"/>
-		<field.blob name="Изображение"/>
+		<field.array name="Вложения" type="Вложение"/>
 
 		<function name="title">
 			<get field="Тема"/>
@@ -142,13 +143,18 @@
 		
 		<row/>
 		<row/>
-		<cell bind="Изображение" cols="3" outline="2">
-			<edit grow="1"/>
-			<tool type="upload"/>
-			<tool type="download"/>
-		</cell>
-		<row/>		
-				
+		<bar bind="Вложения" indent="1" cols="3">
+			<label text="Вложения" grow="1"/>
+			<button name="Вложения.add" text="Добавить" title="Добавить"/><label text="  "/>
+			<button name="Вложения.remove" text="Удалить" title="Удалить"/><label text="  "/>
+			<button name="Вложения.up" text="🡡" title="Переместить вверх"/><label text=" "/>
+			<button name="Вложения.down" text="🡣" title="Переместить вниз"/>
+		</bar>
+		<row/>
+		<nest field="Вложения"/>
+		<row/>
+		<row/>
+		
 		<row indent="1" text="Содержание"/>
 		<row/>
 		<row indent="1" bind="Содержание" cols="3" outline="2">
@@ -162,7 +168,5 @@
 			<tool type="calendar"/>
 		</cell>
 		<row/>
-	
 	</form>
-
 </unit>
