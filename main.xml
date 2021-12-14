@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<unit name="Общие">
+<unit name="main">
 
 	<type name="main" scope="global">
-		
+		<field.string name="ТекущийПользователь"/>
+
 		<function name="title">
 			<get value="Задачи"/>
+		</function>
+
+		<function name="ТекущийПользователь">
+			<account/>
 		</function>
 	
 	</type>
@@ -14,6 +19,8 @@
 		<column width="2"/>
 		<column width="4"/>
 		<column width="60"/>
+		<row/>
+		<row indent="1" bind="ТекущийПользователь" align="left" cols="2" color="606080"/>
 		<row/>
 		<row indent="1" text="Документы" bold="1" color="009646" cols="2"/>
 		<row/>
@@ -41,7 +48,11 @@
 		</row>
 		<row/>
 		<row indent="2">
-			<link reference="Сотрудник" type="list" text="👩‍🏭 Сотрудники"/>
+			<link reference="Сотрудник" type="list" text="👮‍♂️ Сотрудники"/>
+		</row>
+		<row/>
+		<row indent="2">
+			<link reference="Статус" type="list" text="💥 Статусы"/>
 		</row>
 		<row/>
 		<row/>

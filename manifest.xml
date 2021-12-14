@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <package name="task" version="1.0">
-	<include unit="Общие"/>
+	<include unit="main"/>
 	<include unit="Организация"/>
 	<include unit="Договор"/>
+	<include unit="Статус"/>
 	<include unit="Сотрудник"/>
 	<include unit="Вложение"/>
 	<include unit="График"/>

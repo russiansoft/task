@@ -16,6 +16,7 @@
 		<field.string name="Содержание"/>
 		<field.date name="ДатаИсполнения" title="Дата исполнения"/>
 		<field.boolean name="Активная" title="⭐" width="2" indexing="key"/>
+		<field.ref name="Статус" type="Статус" width="15" indexing="key"/>
 		<field.array name="Вложения" type="Вложение"/>
 
 		<function name="title">
@@ -67,17 +68,21 @@
 			</date>
 		</function>
 
-		<state name="constructor">
-
+		<!--Конструктор-->
+		<constructor>
 			<function name="Дата">
 				<today/>
 			</function>
-
 			<function name="Срок">
 				<today/>
 			</function>
-			
-		</state>
+			<function name="Статус">
+				<seek>
+					<get value="Статус"/>
+					<get value="Новая"/>
+				</seek>
+			</function>
+		</constructor>
 
 		<state name="Постановщик">
 			<function name="Проект">
@@ -103,6 +108,14 @@
 			<label text="  "/>
 			<link reference="Работа:Задача-Работа" type="sublist" text="🕐 Работа"/>
 		</row>
+		<row/>
+			
+		<row indent="1" text="Статус"/>
+		<cell bind="Статус" outline="2" cols="2">
+			<edit type="ref" grow="1"/>
+			<tool type="choosing"/>
+			<tool type="opening"/>
+		</cell>
 		<row/>
 			
 		<row indent="1" text="Срок"/>
