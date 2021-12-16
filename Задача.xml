@@ -15,7 +15,7 @@
 		<field.string name="Тема" width="25"/>
 		<field.string name="Содержание"/>
 		<field.date name="ДатаИсполнения" title="Дата исполнения"/>
-		<field.boolean name="Активная" title="⭐" width="2" indexing="key"/>
+		<field.boolean name="Активная"/>
 		<field.ref name="Статус" type="Статус" width="15" indexing="key"/>
 		<field.array name="Вложения" type="Вложение"/>
 
