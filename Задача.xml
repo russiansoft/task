@@ -6,9 +6,9 @@
 	<type name="Задача" title="Задача" scope="global">
 		<field.string name="ДеньНедели" title="📅" width="3"/>
 		<field.number name="НомерДняНедели" variable="1"/>
-		<field.date name="Срок" width="9" indexing="interval"/>
+		<!--<field.date name="Срок" width="9" indexing="interval"/>-->
 		<field.date name="Неделя"/>
-		<field.date name="Дата" title="Дата" width="9" indexing="sort"/>
+		<field.date name="Дата" title="Дата" width="9" indexing="interval"/>
 		<field.ref name="Постановщик" type="Сотрудник" width="20" indexing="key"/>
 		<field.ref name="Организация" type="Организация" title="Организация" width="20" indexing="key"/>
 		<field.ref name="Проект" type="Договор" width="12" indexing="key"/>
@@ -32,7 +32,7 @@
 		</function>
 
 		<function name="НомерДняНедели">
-			<add><mod><jdn><get field="Срок"/></jdn><get value="7"/></mod><get value="1"/></add>
+			<add><mod><jdn><get field="Дата"/></jdn><get value="7"/></mod><get value="1"/></add>
 		</function>
 
 		<function name="ДеньНедели">
@@ -50,10 +50,10 @@
 
 		<function name="Неделя">
 			<date>
-				<year><get field="Срок"/></year>
-				<month><get field="Срок"/></month>
+				<year><get field="Дата"/></year>
+				<month><get field="Дата"/></month>
 				<add>
-					<day><get field="Срок"/></day>
+					<day><get field="Дата"/></day>
 					<choose>
 						<get field="НомерДняНедели"/>
 						<get value="4"/>
@@ -73,9 +73,9 @@
 			<function name="Дата">
 				<today/>
 			</function>
-			<function name="Срок">
+			<!--<function name="Срок">
 				<today/>
-			</function>
+			</function>-->
 			<function name="Статус">
 				<seek>
 					<get value="Статус"/>
@@ -91,7 +91,7 @@
 		</state>
 
 		<index name="Задача">
-			<key field="Срок"/>
+			<!--<key field="Срок"/>-->
 			<key field="Дата"/>
 		</index>
 		<access.allow role="Пользователь"/>
@@ -119,12 +119,12 @@
 		</cell>
 		<row/>
 			
-		<row indent="1" text="Срок"/>
+		<!--<row indent="1" text="Срок"/>
 		<cell bind="Срок" outline="2">
 			<edit type="date"/>
 			<tool type="calendar"/>
 		</cell>
-		<row/>
+		<row/>-->
 			
 		<row indent="1" text="Дата постановки"/>
 		<cell bind="Дата" outline="2">

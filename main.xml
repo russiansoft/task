@@ -69,7 +69,7 @@
 		</row>
 		<row/>
 		<row indent="2">
-			<link reference="Сотрудник" type="list" text="👮‍♂️ Сотрудники"/>
+			<link reference="Сотрудник" type="list" text="👮‍ Сотрудники"/>
 		</row>
 		<row/>
 		<row indent="2">
@@ -78,7 +78,7 @@
 		<row/>
 		<row/>
 		<row/>
-		<cell text="Версия 1.7.1" cols="2" color="606080"/>
+		<cell text="Версия 1.7.2" cols="2" color="606080"/>
 		<row/>
 	</form>
 
