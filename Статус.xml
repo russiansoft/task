@@ -10,6 +10,7 @@
 		<index name="Статус">
 			<key field="Наименование"/>
 		</index>
+		<access.allow role="Пользователь"/>
 	</type>
 
 	<form name="Статус">

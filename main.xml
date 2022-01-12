@@ -2,6 +2,9 @@
 
 <unit name="main">
 
+	<role name="Администратор"/>
+	<role name="Пользователь"/>
+
 	<type name="main" scope="global">
 		<field.string name="ТекущийПользователь"/>
 
@@ -12,15 +15,33 @@
 		<function name="ТекущийПользователь">
 			<account/>
 		</function>
-	
+
+		<access.allow role="Пользователь"/>
 	</type>
 	
+	<form name="main" role="Пользователь">
+		<column width="2"/>
+		<column width="4"/>
+		<column width="60"/>
+		<row/>
+		<row/>
+		<cell cols="2">
+			<button command="google" text="Войти"/>
+		</cell>
+		<row/>
+		<row/>
+		<row/>
+	</form>
+
 	<form name="main">
 		<column width="2"/>
 		<column width="4"/>
 		<column width="60"/>
 		<row/>
 		<row indent="1" bind="ТекущийПользователь" align="left" cols="2" color="606080"/>
+		<cell>
+			<button command="local" text="Выйти"/>
+		</cell>
 		<row/>
 		<row indent="1" text="Документы" bold="1" color="009646" cols="2"/>
 		<row/>
