@@ -13,6 +13,7 @@
 		<field.ref name="Организация" type="Организация" title="Организация" width="20" indexing="key"/>
 		<field.ref name="Проект" type="Договор" width="12" indexing="key"/>
 		<field.string name="Тема" width="25"/>
+		<field.string name="СледующееДействие" title="Следующее действие" width="20"/>
 		<field.string name="Содержание"/>
 		<field.date name="ДатаИсполнения" title="Дата исполнения"/>
 		<field.boolean name="Активная"/>
@@ -152,6 +153,14 @@
 		<row/>
 		<row indent="1" bind="Тема" cols="3" outline="2">
 			<edit type="area" grow="1" vertical="3"/>
+		</row>
+		<row/>
+		
+		<row indent="1" text="Следующее действие"/>
+		<row/>
+		<row indent="1" bind="СледующееДействие" cols="3" outline="2">
+			<edit type="area" grow="1" vertical="3"/>
+			<tool type="clear"/>
 		</row>
 		<row/>
 		
