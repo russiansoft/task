@@ -13,12 +13,12 @@
 		<field.ref name="Организация" type="Организация" title="Организация" width="17" indexing="key"/>
 		<field.ref name="Проект" type="Договор" width="12" indexing="key"/>
 		<field.string name="Тема" width="20"/>
-		<field.string name="СледующееДействие" title="Следующее действие" width="17"/>
-		<field.ref name="Место" type="Место" width="17" indexing="key"/>
+		<field.string name="СледующееДействие" title="Следующее действие" width="25"/>
+		<field.ref name="Место" type="Место" width="12" indexing="key"/>
 		<field.string name="Содержание"/>
 		<field.date name="ДатаИсполнения" title="Дата исполнения"/>
 		<field.boolean name="Активная"/>
-		<field.ref name="Статус" type="Статус" width="15" indexing="key"/>
+		<field.ref name="Статус" type="Статус" width="12" indexing="key"/>
 		<field.array name="Вложения" type="Вложение"/>
 
 		<function name="title">
