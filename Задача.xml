@@ -9,11 +9,12 @@
 		<!--<field.date name="Срок" width="9" indexing="interval"/>-->
 		<field.date name="Неделя"/>
 		<field.date name="Дата" title="Дата" width="9" indexing="interval"/>
-		<field.ref name="Постановщик" type="Сотрудник" width="20" indexing="key"/>
-		<field.ref name="Организация" type="Организация" title="Организация" width="20" indexing="key"/>
+		<field.ref name="Постановщик" type="Сотрудник" width="17" indexing="key"/>
+		<field.ref name="Организация" type="Организация" title="Организация" width="17" indexing="key"/>
 		<field.ref name="Проект" type="Договор" width="12" indexing="key"/>
-		<field.string name="Тема" width="25"/>
-		<field.string name="СледующееДействие" title="Следующее действие" width="20"/>
+		<field.string name="Тема" width="20"/>
+		<field.string name="СледующееДействие" title="Следующее действие" width="17"/>
+		<field.ref name="Место" type="Место" width="17" indexing="key"/>
 		<field.string name="Содержание"/>
 		<field.date name="ДатаИсполнения" title="Дата исполнения"/>
 		<field.boolean name="Активная"/>
@@ -164,6 +165,15 @@
 		</row>
 		<row/>
 		
+		<row indent="1" text="Место"/>
+		<cell bind="Место" outline="2" cols="2">
+			<edit type="ref" grow="1"/>
+			<tool type="choosing"/>
+			<tool type="opening"/>
+			<tool type="clear"/>
+		</cell>
+		<row/>
+			
 		<row/>
 		<row/>
 		<bar bind="Вложения" indent="1" cols="3">

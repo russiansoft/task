@@ -76,9 +76,13 @@
 			<link reference="Статус" type="list" text="💥 Статусы"/>
 		</row>
 		<row/>
+		<row indent="2">
+			<link reference="Место" type="list" text="🪑 Места"/>
+		</row>
 		<row/>
 		<row/>
-		<cell text="Версия 1.7.3" cols="2" color="606080"/>
+		<row/>
+		<cell text="Версия 1.7.4" cols="2" color="606080"/>
 		<row/>
 	</form>
 
