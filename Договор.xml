@@ -10,6 +10,7 @@
 		<index name="Договор">
 			<key field="Наименование"/>
 		</index>
+		<access.allow role="Администратор"/>
 	</type>
 		
 	<form name="Договор">

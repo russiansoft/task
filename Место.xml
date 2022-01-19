@@ -10,7 +10,7 @@
 		<index name="Место">
 			<key field="Наименование"/>
 		</index>
-		<access.allow role="Пользователь"/>
+		<access.allow role="Администратор"/>
 	</type>
 
 	<form name="Место">

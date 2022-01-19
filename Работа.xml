@@ -187,6 +187,7 @@
 			<key field="Дата"/>
 			<key field="Начало"/>
 		</index>
+		<access.allow role="Администратор"/>
 	</type>
 
 	<query id="Задача-Работа">

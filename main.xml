@@ -6,42 +6,24 @@
 	<role name="Пользователь"/>
 
 	<type name="main" scope="global">
-		<field.string name="ТекущийПользователь"/>
+		<field.object name="Аутентификация" type="Аутентификация"/>
 
 		<function name="title">
 			<get value="Задачи"/>
 		</function>
 
-		<function name="ТекущийПользователь">
-			<account/>
-		</function>
-
+		<access.allow role="Администратор"/>
 		<access.allow role="Пользователь"/>
 	</type>
 	
-	<form name="main" role="Пользователь">
+	<form name="main" role="Администратор">
 		<column width="2"/>
 		<column width="4"/>
 		<column width="60"/>
-		<row/>
-		<row/>
-		<cell cols="2">
-			<button command="google" text="Войти"/>
-		</cell>
-		<row/>
-		<row/>
-		<row/>
-	</form>
 
-	<form name="main">
-		<column width="2"/>
-		<column width="4"/>
-		<column width="60"/>
-		<row/>
-		<row indent="1" bind="ТекущийПользователь" align="left" cols="2" color="606080"/>
-		<cell>
-			<button command="local" text="Выйти"/>
-		</cell>
+		<nest field="Аутентификация"/>
+
+
 		<row/>
 		<row indent="1" text="Документы" bold="1" color="009646" cols="2"/>
 		<row/>
@@ -83,6 +65,18 @@
 		<row/>
 		<row/>
 		<cell text="Версия 1.7" cols="2" color="606080"/>
+		<row/>
+	</form>
+
+	<form name="main" role="Пользователь">
+		<column width="2"/>
+		<column width="4"/>
+		<column width="60"/>
+
+		<nest field="Аутентификация"/>
+
+		<row/>
+		<row/>
 		<row/>
 	</form>
 
