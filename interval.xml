@@ -5,6 +5,7 @@
 	<type name="interval" title="Интервал" report="1" scope="global">
 		<field.date name="from"/>
 		<field.date name="to"/>
+		<access.allow role="Администратор"/>
 	</type>
 
 	<form name="interval">
