@@ -13,9 +13,9 @@
 		<field.string name="Тема" width="20"/>
 		<field.date name="Неделя"/>
 		<field.date name="Дата" title="Дата"/>
-		<field.ref name="Проект" type="Договор" width="12" indexing="key"/>
-		<field.ref name="Организация" type="Организация" title="Организация" width="17" indexing="key"/>
-		<field.ref name="Постановщик" type="Сотрудник" width="17" indexing="key"/>
+		<field.ref name="Проект" type="Договор" width="10" indexing="key"/>
+		<field.ref name="Организация" type="Организация" title="Организация" width="13" indexing="key"/>
+		<field.ref name="Постановщик" type="Сотрудник" width="13" indexing="key"/>
 		<field.string name="Содержание"/>
 		<!-- <field.date name="ДатаИсполнения" title="Дата исполнения"/> -->
 		<field.boolean name="Активная"/>
