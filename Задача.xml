@@ -8,11 +8,11 @@
 		<field.number name="НомерДняНедели" variable="1"/>
 		<field.date name="Срок" width="9" indexing="interval"/>
 		<field.ref name="Статус" type="Статус" width="12" stretch="12" indexing="key"/>
-		<field.ref name="Место" type="Место" width="12" stretch="12" indexing="key"/>
+		<field.ref name="Место" type="Место" indexing="key"/>
 		<field.string name="СледующееДействие" title="Следующее действие" width="25" stretch="25"/>
 		<field.string name="Тема" width="20" stretch="20"/>
 		<field.date name="Неделя"/>
-		<field.date name="Дата" title="Дата"/>
+		<field.date name="Дата" title="Дата" width="9"/>
 		<field.ref name="Проект" type="Договор" width="10" stretch="10" indexing="key"/>
 		<field.ref name="Организация" type="Организация" title="Организация" width="13" stretch="13" indexing="key"/>
 		<field.ref name="Постановщик" type="Сотрудник" width="13" stretch="13" indexing="key"/>
